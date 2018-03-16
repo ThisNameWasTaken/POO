@@ -31,6 +31,11 @@ public:
 	 */
 	void add(const T& element);
 
+	/**
+	 * Removes all the elements from the Set
+	 */
+	void clear();
+
 private:
 	T* elements;
 	int length; // number of elements
