@@ -36,6 +36,12 @@ public:
 	 */
 	void clear();
 
+	/**
+	 * @param element - the element to search for
+	 * @returns the index of the given element if it is found inside the set or -1 otherwise
+	 */
+	int indexOf(const T& element) const;
+
 private:
 	T* elements;
 	int length; // number of elements

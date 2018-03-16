@@ -80,3 +80,37 @@ void Set<T>::clear() {
 	this->size = 0;
 	delete[] this->elements;
 }
+
+template<class T>
+int Set<T>::indexOf(const T& element) const {
+	// If it is a nummber then do a binary search
+	if (std::is_arithmetic<T>::value) {
+		int leftIndex = 0, rightIndex = this->length - 1;
+
+		while (leftIndex <= rightIndex) {
+			int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
+
+			if (this->elements[middleIndex] == element) {
+				return middleIndex;
+			}
+
+			if (this->elements[middleIndex] < element) {
+				leftIndex = middleIndex + 1;
+			} else {
+				rightIndex = middleIndex - 1; rightIndex = middleIndex - 1;
+			}	
+		}
+
+		return -1;
+	}
+
+	// Otherwise go through all the elements
+	for (int i = 0; i < this->length; i++) {
+		if (this->elements[i] == element) {
+			return i;
+		}
+	}
+
+	return -1;
+}
+
