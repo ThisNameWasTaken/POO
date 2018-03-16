@@ -109,3 +109,30 @@ int Set<T>::indexOf(const T& element) const {
 	return -1;
 }
 
+template<class T>
+void Set<T>::remove(const T& element) {
+	// The index of the item which must be removed
+	const int index = this->indexOf(element);
+	if (index == -1) {
+		return;
+	}
+
+	this->length--;
+
+	for (int i = index; i < this->length; i++) {
+		this->elements[i] = this->elements[i + 1];
+	}
+
+	// Check if some memory can be freed
+	if (this->length <= this->size - REALLOC_SIZE) {
+		this->size -= REALLOC_SIZE;
+
+		T* temp = new T[this->size];
+		for (int i = 0; i < this->length; i++) {
+			temp[i] = elements[i];
+		}
+
+		delete[] this->elements;
+		this->elements = temp;
+	}
+}

@@ -42,6 +42,12 @@ public:
 	 */
 	int indexOf(const T& element) const;
 
+	/**
+	* Removes an element from the Set
+	* @param element - the element to remove
+	*/
+	void remove(const T& element);
+
 private:
 	T* elements;
 	int length; // number of elements
