@@ -20,12 +20,7 @@ Set<T>::~Set() {
 
 template<class T>
 bool Set<T>::has(const T& element) const {
-	for (int i = 0; i < this->length; i++) {
-		if (this->elements[i] == element) {
-			return true;
-		}
-	}
-	return false;
+	return this->indexOf(element) == -1 ? false : true;
 }
 
 template<class T>
