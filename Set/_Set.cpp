@@ -14,3 +14,14 @@ Set<T>::~Set() {
 	this->length = 0;
 	delete[] this->elements;
 }
+
+template<class T>
+bool Set<T>::has(const T& element) const
+{
+	for (int i = 0; i < this->length; i++) {
+		if (this->elements[i] == element) {
+			return true;
+		}
+	}
+	return false;
+}

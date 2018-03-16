@@ -18,6 +18,12 @@ public:
 	 * @returns the number of elements inside the Set
 	 */
 	inline int getLength() const { return this->length; }
+
+	/**
+	 * @param element - the element to look for
+	 * @returns a boolean asserting whether the given element is found in the Set or not
+	 */
+	bool has(const T& element) const;
 private:
 	T* elements;
 	int length;
