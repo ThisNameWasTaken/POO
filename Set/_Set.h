@@ -24,8 +24,16 @@ public:
 	 * @returns a boolean asserting whether the given element is found in the Set or not
 	 */
 	bool has(const T& element) const;
+
+	/**
+	 * Adds a new element to the Set
+	 * @param element - the element to add
+	 */
+	void add(const T& element);
+
 private:
 	T* elements;
-	int length;
+	int length; // number of elements
+	int size; // elements' size 
 };
 
