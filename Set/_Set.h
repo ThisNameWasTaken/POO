@@ -48,6 +48,15 @@ public:
 	*/
 	void remove(const T& element);
 
+	/** 
+	 * @param index
+	 * @returns the element found at the given index or 'NULL' if the Set is empty
+	 *
+	 * @description If the index exceeds Set's length it will keep counting from the first element
+	 * If the index has a negative value then it will start counting, in reverse, from the last element
+	 */
+	const T& operator[](int index) const;
+
 private:
 	T* elements;
 	int length; // number of elements

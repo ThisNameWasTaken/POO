@@ -136,3 +136,20 @@ void Set<T>::remove(const T& element) {
 		this->elements = temp;
 	}
 }
+
+template<class T>
+const T& Set<T>::operator[](int index) const {
+	if (!this->length) {
+		return NULL;
+	}
+
+	while (index < 0) {
+		index += this->length;
+	}
+
+	while (index >= this->length) {
+		index -= this->length;
+	}
+
+	return this->elements[index];
+}
