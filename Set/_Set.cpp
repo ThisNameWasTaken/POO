@@ -14,6 +14,17 @@ Set<T>::Set(const T* arr = nullptr, const int length = 0) {
 	}
 }
 
+template<class T>
+Set<T>::Set(const Set<T>& set) {
+	this->length = 0;
+	this->size = 0;
+	this->elements = nullptr;
+
+	for (const T& element : set) {
+		this->add(element);
+	}
+}
+
 template <class T>
 Set<T>::~Set() {
 	this->clear();

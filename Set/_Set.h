@@ -12,6 +12,7 @@ public:
 	 * @param length - the length of the array
 	 */
 	Set(const T* arr = nullptr, const int length = 0);
+	Set(const Set<T>& set);
 	~Set();
 
 	/**
