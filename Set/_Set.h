@@ -64,6 +64,13 @@ public:
 	 */
 	Set<T>& operator=(const Set<T>& set);
 
+	/**
+	 * Does the union between the given Set and the current instance
+	 * @param set
+	 * @returns a new set
+	 */
+	Set<T> operator+(const Set<T>& set);
+
 private:
 	T* elements;
 	int length; // number of elements

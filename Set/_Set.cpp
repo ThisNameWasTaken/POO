@@ -179,10 +179,23 @@ Set<T>& Set<T>::operator=(const Set<T>& set) {
 	}
 
 	this->clear();
+	cout << "elements: " << this->elements << endl;
 
 	for (const T& element : set) {
 		this->add(element);
 	}
 
 	return *this;
+}
+
+template<class T>
+Set<T> Set<T>::operator+(const Set<T>& set)
+{
+	Set<T> newSet = *this;
+
+	for (const T& element : set) {
+		newSet.add(element);
+	}
+
+	return newSet;
 }
