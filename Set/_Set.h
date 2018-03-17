@@ -57,6 +57,12 @@ public:
 	 */
 	const T& operator[](int index) const;
 
+	/**
+	 * @param set - the Set which is assigned to the current instance
+	 * @returns - set
+	 */
+	Set<T>& operator=(const Set<T>& set);
+
 private:
 	T* elements;
 	int length; // number of elements

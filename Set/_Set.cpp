@@ -7,6 +7,7 @@ template <class T>
 Set<T>::Set(const T* arr = nullptr, const int length = 0) {
 	this->length = 0;
 	this->size = 0;
+	this->elements = nullptr;
 	
 	for (int i = 0; i < length; i++) {
 		this->add(arr[i]);
@@ -37,7 +38,9 @@ void Set<T>::add(const T& element) {
 			temp[i] = elements[i];
 		}
 
-		delete[] this->elements;
+		if (this->elements) {
+			delete[] this->elements;
+		}
 		this->elements = temp;
 	}
 	
@@ -71,9 +74,12 @@ void Set<T>::add(const T& element) {
 
 template<class T>
 void Set<T>::clear() {
+	if (this->elements) {
+		delete[] this->elements;
+	}
 	this->length = 0;
 	this->size = 0;
-	delete[] this->elements;
+	this->elements = nullptr;
 }
 
 template<class T>
@@ -131,8 +137,9 @@ void Set<T>::remove(const T& element) {
 		for (int i = 0; i < this->length; i++) {
 			temp[i] = elements[i];
 		}
-
-		delete[] this->elements;
+		if (this->elements) {
+			delete[] this->elements;
+		}
 		this->elements = temp;
 	}
 }
@@ -152,4 +159,19 @@ const T& Set<T>::operator[](int index) const {
 	}
 
 	return this->elements[index];
+}
+
+template<class T>
+Set<T>& Set<T>::operator=(const Set<T>& set) {
+	if (this == &set) {
+		return *this;
+	}
+
+	this->clear();
+
+	for (const T& element : set) {
+		this->add(element);
+	}
+
+	return *this;
 }
