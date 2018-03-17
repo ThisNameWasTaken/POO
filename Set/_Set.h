@@ -84,6 +84,12 @@ public:
 	 */
 	inline bool operator<(const Set<T>& set) const { return this->length < set.getLength(); }
 
+	/**
+	 * @param set - the Set to compare to
+	 * @returns a boolean asserting whether the current instance has more+ elements than the given Set or not
+	 */
+	inline bool operator>(const Set<T>& set) const { return this->length > set.getLength(); }
+
 private:
 	T* elements;
 	int length; // number of elements
