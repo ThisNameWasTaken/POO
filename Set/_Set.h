@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 template <class T>
 class Set {
@@ -89,6 +90,14 @@ public:
 	 * @returns a boolean asserting whether the current instance has more+ elements than the given Set or not
 	 */
 	inline bool operator>(const Set<T>& set) const { return this->length > set.getLength(); }
+
+	/**
+	 * Prints the set
+	 * @param out - ouput stream
+	 * @param set - the set to print
+	 */
+	template <class T>
+	friend std::ostream& operator<<(std::ostream& out, const Set<T>& set);
 
 private:
 	T* elements;

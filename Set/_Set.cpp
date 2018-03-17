@@ -2,6 +2,7 @@
 
 #include "_Set.h"
 #include <type_traits>
+#include <iostream>
 
 template <class T>
 Set<T>::Set(const T* arr = nullptr, const int length = 0) {
@@ -203,4 +204,15 @@ template<class T>
 Set<T>& Set<T>::operator+=(const Set<T>& set) {
 	*this = *this + set;
 	return *this;
+}
+
+template <class T>
+std::ostream& operator<<(std::ostream& out, const Set<T>& set) {
+	out << "length: " << set.getLength() << endl << "elements: ";
+	for (int i = 0; i < set.getLength() - 1; i++) {
+		out << set[i] << ", ";
+	}
+	out << set[set.getLength() - 1] << endl;
+
+	return out;
 }
