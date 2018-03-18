@@ -206,6 +206,26 @@ Set<T>& Set<T>::operator+=(const Set<T>& set) {
 	return *this;
 }
 
+template<class T>
+template<class U>
+Set<T> Set<T>::operator*(const U& value) {
+	// TODO: find a way to handle non numeric data types
+
+	// Here I try to exit eraly if the data types are not numeric
+	if (!std::is_arithmetic<T>::value || !std::is_arithmetic<U>::value) {
+		return *this;
+	}
+
+	Set<T> newSet;
+
+	for (int i = 0; i < this->length; i++) {
+		// However, here I still get an error if I pass non numeric ones such as `string`
+		newSet.add(this->elements[i] * value);
+	}
+
+	return newSet;
+}
+
 template <class T>
 std::ostream& operator<<(std::ostream& out, const Set<T>& set) {
 	if (!set.getLength()) {
@@ -237,4 +257,23 @@ std::istream& operator>>(std::istream& in, Set<T>& set) {
 	}
 
 	return in;
+}
+
+template<class T, class U>
+Set<T> operator*(const U& value, const Set<T>& set) {
+	// TODO: find a way to handle non numeric data types
+
+	// Here I try to exit eraly if the data types are not numeric
+	if (!std::is_arithmetic<T>::value || !std::is_arithmetic<U>::value) {
+		return set;
+	}
+
+	Set<T> newSet;
+
+	for (int i = 0; i < set.getLength(); i++) {
+		// However, here I still get an error if I pass non numeric ones such as `string`
+		newSet.add(set[i] * value);
+	}
+
+	return newSet;
 }

@@ -107,9 +107,28 @@ public:
 	template <class T>
 	friend std::istream& operator>>(std::istream& in, Set<T>& set);
 
+	/* ====================== THE FOLLOWING METHODS WORK ONLY ON NUMERIC TYPES ====================== */
+
+	/**
+	 * Multiplies the Set by a given value
+	 * ONLY works on data types which can be multiplyed by NUMERIC ones
+	 * @param value
+	 * @returns a new set
+	 */
+	template<class U>
+	Set<T> operator*(const U& value);
+
+	/**
+	 * Multiplies a given Set by a given value
+	 * ONLY works on data types which can be multiplyed by NUMERIC ones
+	 * @param value
+	 * @returns a new set
+	 */
+	template<class U>
+	friend Set<T> operator*(const U& value, const Set<T>& set);
+
 private:
 	T* elements;
 	int length; // number of elements
-	int size; // elements' size 
+	int size; // elements' size
 };
-
