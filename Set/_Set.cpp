@@ -207,6 +207,20 @@ Set<T>& Set<T>::operator+=(const Set<T>& set) {
 }
 
 template<class T>
+T Set<T>::getSum() const {
+	if (!std::is_arithmetic<T>::value) {
+		return T();
+	}
+
+	T sum = 0;
+	for (int i = 0; i < this->length; i++) {
+		sum += this->elements[i];
+	}
+
+	return sum;
+}
+
+template<class T>
 template<class U>
 Set<T> Set<T>::operator*(const U& value) {
 	// TODO: find a way to handle non numeric data types

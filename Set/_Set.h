@@ -135,6 +135,12 @@ public:
 	template<class U>
 	Set<T>& operator*=(const U& value);
 
+	/**
+	 * ONLY works on NUMERIC data types
+	 * @returns the sum of the Set's elements or an empty object if the data type is non numeric
+	 */
+	T getSum() const;
+
 private:
 	T* elements;
 	int length; // number of elements
