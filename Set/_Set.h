@@ -99,6 +99,14 @@ public:
 	template <class T>
 	friend std::ostream& operator<<(std::ostream& out, const Set<T>& set);
 
+	/**
+	 * Reads a set
+	 * @param out - input stream
+	 * @param set - the set to read
+	 */
+	template <class T>
+	friend std::istream& operator>>(std::istream& in, Set<T>& set);
+
 private:
 	T* elements;
 	int length; // number of elements

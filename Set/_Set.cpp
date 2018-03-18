@@ -216,3 +216,20 @@ std::ostream& operator<<(std::ostream& out, const Set<T>& set) {
 
 	return out;
 }
+
+template<class T>
+std::istream& operator>>(std::istream& in, Set<T>& set) {
+	set.clear();
+
+	std::cout << "length: ";
+	int length; in >> length;
+
+	std::cout << "elements: ";
+	int x;
+	for (int i = 0; i < length; i++) {
+		in >> x;
+		set.add(x);
+	}
+
+	return in;
+}
