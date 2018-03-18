@@ -226,6 +226,24 @@ Set<T> Set<T>::operator*(const U& value) {
 	return newSet;
 }
 
+template<class T>
+template<class U>
+Set<T>& Set<T>::operator*=(const U& value) {
+	// TODO: find a way to handle non numeric data types
+
+	// Here I try to exit eraly if the data types are not numeric
+	if (!std::is_arithmetic<T>::value || !std::is_arithmetic<U>::value) {
+		return *this;
+	}
+
+	for (int i = 0; i < this->length; i++) {
+		// However, here I still get an error if I pass non numeric ones such as `string`
+		this->elements[i] *= value;
+	}
+
+	return *this;
+}
+
 template <class T>
 std::ostream& operator<<(std::ostream& out, const Set<T>& set) {
 	if (!set.getLength()) {

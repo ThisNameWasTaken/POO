@@ -127,6 +127,14 @@ public:
 	template<class U>
 	friend Set<T> operator*(const U& value, const Set<T>& set);
 
+	/**
+	 * Multiplies the current instance by a given value
+	 * @param set
+	 * @returns the current instace
+	 */
+	template<class U>
+	Set<T>& operator*=(const U& value);
+
 private:
 	T* elements;
 	int length; // number of elements
