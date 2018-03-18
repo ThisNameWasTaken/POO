@@ -239,6 +239,25 @@ Set<T> Set<T>::getOddNumbers() const {
 }
 
 template<class T>
+Set<T> Set<T>::getEvenNumbers() const {
+	// TODO: find a way to handle data types which are not integers 
+	if (!std::is_integral<T>::value) {
+		return Set<T>();
+	}
+
+	Set<T> newSet;
+
+	for (int i = 0; i < this->length; i++) {
+		if (this->elements[i] % 2 == 0) {
+			newSet.add(this->elements[i]);
+		}
+	}
+
+	return newSet;
+}
+
+
+template<class T>
 template<class U>
 Set<T> Set<T>::operator*(const U& value) {
 	// TODO: find a way to handle non numeric data types

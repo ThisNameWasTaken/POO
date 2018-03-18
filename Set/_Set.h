@@ -150,6 +150,13 @@ public:
 	 */
 	Set<T> getOddNumbers() const;
 
+	/**
+	* ONLY works on INTEGERS
+	* @returns a new Set which has all the even numbers inside the current instance
+	* or an empty object if the data type is not integer
+	*/
+	Set<T> getEvenNumbers() const;
+
 private:
 	T* elements;
 	int length; // number of elements
