@@ -141,6 +141,15 @@ public:
 	 */
 	T getSum() const;
 
+	/* ====================== THE FOLLOWING METHODS WORK ONLY ON INTEGERS ====================== */
+
+	/**
+	 * ONLY works on INTEGERS
+	 * @returns a new Set which has all the odd numbers inside the current instance
+	 * or an empty object if the data type is not integer
+	 */
+	Set<T> getOddNumbers() const;
+
 private:
 	T* elements;
 	int length; // number of elements
