@@ -208,11 +208,16 @@ Set<T>& Set<T>::operator+=(const Set<T>& set) {
 
 template <class T>
 std::ostream& operator<<(std::ostream& out, const Set<T>& set) {
-	out << "length: " << set.getLength() << endl << "elements: ";
+	if (!set.getLength()) {
+		out << "Set is empty" << std::endl;
+		return out;
+	}
+
+	out << "length: " << set.getLength() << std::endl << "elements: ";
 	for (int i = 0; i < set.getLength() - 1; i++) {
 		out << set[i] << ", ";
 	}
-	out << set[set.getLength() - 1] << endl;
+	out << set[set.getLength() - 1] << std::endl;
 
 	return out;
 }
