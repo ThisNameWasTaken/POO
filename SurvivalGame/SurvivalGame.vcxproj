@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="AIController.cpp" />
+    <ClCompile Include="Console.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Character.cpp" />
@@ -126,6 +127,7 @@
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="AIController.h" />
+    <ClInclude Include="Console.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Character.h" />
