@@ -12,6 +12,10 @@ public:
 
 	void render();
 
+	inline static const Scene* getActiveScene() { return activeScene; };
+	inline int getWidth() const { return this->width; }
+	inline int getHeight() const { return this->height; }
+
 private:
 	void renderFirstPaint() const;
 
@@ -21,7 +25,6 @@ private:
 	int height;
 	bool isFirstPaint;
 
-	static HANDLE consoleHandle;
-	static CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
+	static Scene* activeScene;
 };
 

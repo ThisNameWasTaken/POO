@@ -1,7 +1,8 @@
-#include "Texture.h"
 #include <fstream>
 #include <iostream>
 #include <Windows.h>
+#include "Texture.h"
+#include "Console.h"
 
 Texture::Texture(string fileName) {
 	this->width = 0;
@@ -40,20 +41,18 @@ bool Texture::loadFromFile(string fileName) {
 }
 
 ostream& operator<< (ostream& out, const Texture& texture) {
-	static HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-	static CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
-	GetConsoleScreenBufferInfo(consoleHandle, &consoleInfo);
-	static COORD& cursorPos = consoleInfo.dwCursorPosition;
+	static COORD cursorPos;
+	cursorPos = Console::getCursorPosition();
 
 	for (const string line : texture.getTexture()) {
 		out << line;
 		cursorPos.Y++;
-		SetConsoleCursorPosition(consoleHandle, cursorPos);
+		Console::setCursorPosition(cursorPos);
 	}
 
 	cursorPos.X += texture.getWidth();
 	cursorPos.Y -= texture.getHeight();
-	SetConsoleCursorPosition(consoleHandle, cursorPos);
+	Console::setCursorPosition(cursorPos);
 
 	return out;
 }
