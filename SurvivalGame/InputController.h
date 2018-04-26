@@ -2,10 +2,10 @@
 
 #include "Controller.h"
 
-class AIController : public Controller {
+class InputController : public Controller {
 public:
-	AIController();
-	~AIController();
+	InputController();
+	~InputController();
 
 	virtual void onBeginPlay() override;
 	virtual void onUpdate() override;

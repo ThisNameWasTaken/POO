@@ -8,6 +8,10 @@ AIController::~AIController() {
 
 }
 
-void AIController::update() {
+void AIController::onBeginPlay() {
+
+}
+
+void AIController::onUpdate() {
 
 }
