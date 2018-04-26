@@ -7,8 +7,10 @@
 Texture::Texture(string fileName) {
 	this->width = 0;
 	this->height = 0;
-	if(fileName.length())
+
+	if (fileName.length()) {
 		this->loadFromFile(fileName);
+	}
 }
 
 Texture::~Texture() {

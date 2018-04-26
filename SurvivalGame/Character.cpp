@@ -4,7 +4,9 @@ Character::Character() {
 
 }
 
-Character::Character(Sprite sprite) : Actor(sprite) {}
+Character::Character(Sprite sprite) : Actor(sprite) {
+
+}
 
 Character::~Character() {
 	

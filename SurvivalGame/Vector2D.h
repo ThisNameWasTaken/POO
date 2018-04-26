@@ -1,5 +1,5 @@
 #pragma once
-class Vector2D{
+class Vector2D {
 public:
 	Vector2D(int x = 0, int y = 0);
 	Vector2D(const Vector2D& vector);

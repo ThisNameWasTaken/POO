@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include "Console.h"
 #include "Vector2D.h"
 #include "Texture.h"
 #include "Sprite.h"

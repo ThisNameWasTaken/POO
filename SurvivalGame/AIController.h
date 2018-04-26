@@ -2,7 +2,7 @@
 
 #include "Controller.h"
 
-class AIController : Controller {
+class AIController : public Controller {
 public:
 	AIController();
 	~AIController();
