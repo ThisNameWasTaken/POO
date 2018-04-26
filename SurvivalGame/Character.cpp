@@ -11,9 +11,9 @@ Character::~Character() {
 }
 
 void Character::beginPlay() {
-
+	
 }
 
 void Character::update() {
-	this->setPosition(this->getPosition().x + 1);
+	this->Move(Vector2D(1, 1));
 }

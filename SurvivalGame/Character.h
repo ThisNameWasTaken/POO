@@ -11,6 +11,12 @@ public:
 	void beginPlay() override;
 	void update() override;
 
+	/**
+	* Moves a character from its current position by a given value
+	* @param value - the value to move the actor by
+	*/
+	inline virtual void Move(Vector2D value) { this->setPosition(this->getPosition() + value); }
+
 protected:
 	typedef Character Super;
 };
