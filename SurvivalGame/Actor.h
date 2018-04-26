@@ -6,8 +6,9 @@
 
 using namespace std;
 
-class Actor {
-public:
+class Actor
+{
+  public:
 	Actor();
 	Actor(Sprite sprite);
 	~Actor();
@@ -16,7 +17,7 @@ public:
 	virtual void update() = 0;
 
 	inline Vector2D getPosition() const { return this->position; }
-	inline void setPosition(const Vector2D& position) { this->position = position; }
+	void setPosition(const Vector2D &position);
 
 	inline Sprite getSprite() const { return this->sprite; }
 	inline void setSprite(Sprite sprite) { this->sprite = sprite; }
@@ -24,26 +25,25 @@ public:
 	/** 
 	 * @returns - All the actors that have been spawned so far.
 	 */
-	static inline set<Actor*> getWorldActors() { return worldActors; }
+	static inline set<Actor *> getWorldActors() { return worldActors; }
 
 	/**
 	 * @param range - How far from the current actor's instance can the other actors be.
 	 * @returns - All the actors that are in a given range of the current actor's instance.
 	 */
-	set<Actor*> getActorsInRange(int range) const;
+	set<Actor *> getActorsInRange(int range) const;
 
 	/**
 	 * @returns - All actors that have the same position as the current actor's instance.
 	 */
-	set<Actor*> getOverlappingActors() const;
+	set<Actor *> getOverlappingActors() const;
 
-protected:
+  protected:
 	typedef Actor Super;
 
-private:
+  private:
 	Vector2D position;
 	Sprite sprite;
 	// All the actors that have been spawned so far
-	static set<Actor*> worldActors;
+	static set<Actor *> worldActors;
 };
-
