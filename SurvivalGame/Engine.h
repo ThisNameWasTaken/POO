@@ -9,6 +9,10 @@
 #include "Actor.h"
 #include "Character.h"
 #include "Scene.h"
+#include "Controller.h"
+#include "InputController.h"
+#include "AIController.h"
+
 
 using namespace std;
 

@@ -28,17 +28,23 @@ void Scene::render() {
 
 	if (this->isFirstPaint) {
 		this->renderFirstPaint();
-		this->isFirstPaint = false;
 	} else {
 		for (Actor* actor : this->actors) {
 			if (!actor) {
 				continue;
 			}
 
+			if (!actor->shouldUpdate) {
+				continue;
+			}
+
+			// Clear actor's previous appearance on the map
 			cursorPosition.X = actor->getPosition().x * this->tile.getWidth();
 			cursorPosition.Y = actor->getPosition().y * this->tile.getHeight();
 			SetConsoleCursorPosition(Console::getHandle(), cursorPosition);
 			cout << this->tile;
+
+			// Update Actor's position
 			actor->update();
 		}
 	}
@@ -48,20 +54,29 @@ void Scene::render() {
 			continue;
 		}
 
+		if (!actor->shouldUpdate && !this->isFirstPaint) {
+			continue;
+		}
+
+		// Render actor's current possition
 		cursorPosition.X = actor->getPosition().x * this->tile.getWidth();
 		cursorPosition.Y = actor->getPosition().y * this->tile.getHeight();
 		Console::setCursorPosition(cursorPosition);
 		cout << actor->getSprite();
 	}
 
+	// place the cursor at the end
 	cursorPosition.X = 0;
 	cursorPosition.Y = this->height * this->tile.getHeight();
 	Console::setCursorPosition(cursorPosition);
+
+	this->isFirstPaint = false;
 }
 
 void Scene::renderFirstPaint() const {
 	COORD& cursorPosition = Console::getCursorPosition();
 
+	// Render background
 	for (int i = 0; i < this->height; i++) {
 		for (int j = 0; j < this->width; j++) {
 			cout << this->tile;

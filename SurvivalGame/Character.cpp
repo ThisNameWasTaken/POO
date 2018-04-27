@@ -4,8 +4,8 @@ Character::Character() {
 
 }
 
-Character::Character(Sprite sprite) : Actor(sprite) {
-
+Character::Character(Sprite sprite, Controller* controller) : Actor(sprite) {
+	this->setController(controller);
 }
 
 Character::~Character() {
@@ -13,9 +13,13 @@ Character::~Character() {
 }
 
 void Character::beginPlay() {
-	
+	if (this->controller) {
+		this->controller->onBeginPlay();
+	}
 }
 
 void Character::update() {
-	this->Move(Vector2D(1, 1));
+	if (this->controller) {
+		this->controller->onUpdate();
+	}
 }

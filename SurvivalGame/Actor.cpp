@@ -3,19 +3,29 @@
 
 set<Actor*> Actor::worldActors;
 
-Actor::Actor() {
-	this->setPosition(Vector2D(0, 0));
+Actor::Actor(Vector2D position) {
+	this->setPosition(position);
 	worldActors.insert(this);
+	this->shouldUpdate = true;
 }
 
-Actor::Actor(Sprite sprite) {
-	this->setPosition(Vector2D(0, 0));
+Actor::Actor(const Actor& actor) : Actor(sprite) {
+	this->setPosition(actor.getPosition());
+}
+
+Actor::Actor(Sprite sprite, Vector2D position) : Actor(position) {
 	this->setSprite(sprite);
-	worldActors.insert(this);
 }
 
 Actor::~Actor() {
 	worldActors.erase(this);
+}
+
+const Actor& Actor::operator=(const Actor& actor) {
+	this->setPosition(actor.getPosition());
+	this->setSprite(actor.getSprite());
+	
+	return *this;
 }
 
 void Actor::setPosition(const Vector2D& position) {

@@ -8,11 +8,20 @@ using namespace std;
 
 class Actor {
   public:
-	Actor();
-	Actor(Sprite sprite);
+	Actor(Vector2D position = Vector2D(0, 0));
+	Actor(const Actor& actor);
+	Actor(Sprite sprite, Vector2D position = Vector2D(0, 0));
 	~Actor();
 
+	const Actor& operator=(const Actor& actor);
+
+	/**
+	 * Called when the game starts
+	 */
 	virtual void beginPlay() = 0;
+	/**
+	 * Called each turn
+	 */
 	virtual void update() = 0;
 
 	inline Vector2D getPosition() const { return this->position; }
@@ -36,6 +45,11 @@ class Actor {
 	 * @returns - All actors that have the same position as the current actor's instance.
 	 */
 	set<Actor*> getOverlappingActors() const;
+
+	/**
+	 * A boolean value which asserts whether the actor should be updated every turn or not
+	 */
+	bool shouldUpdate;
 
   protected:
 	typedef Actor Super;

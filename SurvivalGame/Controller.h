@@ -12,5 +12,14 @@ public:
 	 * Called each time a Character is updated
 	 */
 	virtual void onUpdate() = 0;
+
+	/**
+	 * Attaches the current instance to the given Charatcter
+	 * @param character - the Character to attach the controller to
+	 */
+	inline void attachTo(class Character* character) { if (character) { this->character = character; } }
+
+protected:
+	class Character* character;
 };
 

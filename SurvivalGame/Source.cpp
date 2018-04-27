@@ -18,7 +18,8 @@ int main() {
 	Sprite ghostSprite(&ghostTexture);
 	Sprite brickSprite(&brickTexture);
 
-	Character player(catSprite);
+	InputController playerController;
+	Character player(catSprite, &playerController);
 	
 	Scene scene(10, 10, tileSprite, Actor::getWorldActors());
 	while (true) {
