@@ -41,7 +41,7 @@ void Scene::render() {
 			// Clear actor's previous appearance on the map
 			cursorPosition.X = actor->getPosition().x * this->tile.getWidth();
 			cursorPosition.Y = actor->getPosition().y * this->tile.getHeight();
-			SetConsoleCursorPosition(Console::getHandle(), cursorPosition);
+			Console::setCursorPosition(cursorPosition);
 			cout << this->tile;
 
 			// Update Actor's position
@@ -85,6 +85,14 @@ void Scene::renderFirstPaint() const {
 		cursorPosition.X = 0;
 		cursorPosition.Y = (i + 1) * this->tile.getHeight();
 		Console::setCursorPosition(cursorPosition);
+	}
+
+	for (Actor* actor : this->actors) {
+		if (!actor) {
+			continue;
+		}
+
+		actor->beginPlay();
 	}
 }
 
