@@ -1,16 +1,15 @@
 #include "Actor.h"
 #include "Sprite.h"
-#include "Controller.h"
 
 #pragma once
 class Character : public Actor {
 public:
 	Character();
 	Character(const Character& character);
-	Character(Sprite sprite, Controller* controller = nullptr);
+	Character(Sprite sprite, class Controller* controller = nullptr);
 	~Character();
 
-	const Character& operator=(const Character& vector);
+	const Character& operator=(const Character& character);
 
 	void beginPlay() override;
 	void update() override;
@@ -21,13 +20,13 @@ public:
 	 */
 	inline virtual void move(const Vector2D& value) { this->setPosition(this->getPosition() + value); }
 
-	inline void setController(Controller* controller) { if (!controller) return; this->controller = controller; this->controller->attachTo(this); }
-	inline Controller* getController() const { return this->controller; }
+	void setController(class Controller* controller);
+	inline class Controller* getController() const { return this->controller; }
 
 protected:
 	typedef Character Super;
 
 private:
-	Controller* controller;
+	class Controller* controller;
 };
 
