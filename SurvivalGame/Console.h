@@ -15,6 +15,7 @@ public:
 	inline static void setCursorPosition(const COORD& position) { SetConsoleCursorPosition(handle, position); }
 	inline static void setCursorPosition(const Vector2D& position) { SetConsoleCursorPosition(handle, { (SHORT)position.x, (SHORT)position.y }); }
 	inline static void setCursorPosition(int x, int y) { SetConsoleCursorPosition(handle, { (SHORT)x, (SHORT)y }); }
+	static void showCursor(bool show = true);
 
 private:
 	Console();
