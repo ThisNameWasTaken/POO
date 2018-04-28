@@ -12,7 +12,7 @@
 #include "Controller.h"
 #include "InputController.h"
 #include "AIController.h"
-
+#include "Random.h"
 
 using namespace std;
 
