@@ -9,7 +9,7 @@ Character::Character(const Character& character) : Actor(character) {
 	this->controller = character.getController();
 }
 
-Character::Character(const Sprite& sprite, Controller* controller) : Actor(sprite) {
+Character::Character(const Sprite& sprite, Controller* controller, const Vector2D& Position) : Actor(sprite, position) {
 	this->setController(controller);
 }
 
