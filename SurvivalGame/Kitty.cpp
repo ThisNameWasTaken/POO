@@ -16,7 +16,7 @@ Kitty::~Kitty() {
 }
 
 void Kitty::beginPlay() {
-	Agent::beginPlay();
+	Super::beginPlay();
 
 	this->maxHP = 5000;
 	this->maxArmor = 50;
@@ -26,5 +26,5 @@ void Kitty::beginPlay() {
 }
 
 void Kitty::update() {
-	Agent::update();
+	Super::update();
 }

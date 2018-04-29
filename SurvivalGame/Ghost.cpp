@@ -16,7 +16,7 @@ Ghost::~Ghost() {
 }
 
 void Ghost::beginPlay() {
-	Agent::beginPlay();
+	Super::beginPlay();
 
 	this->maxHP = 100;
 	this->maxArmor = 100;
@@ -26,5 +26,5 @@ void Ghost::beginPlay() {
 }
 
 void Ghost::update() {
-	Agent::update();
+	Super::update();
 }

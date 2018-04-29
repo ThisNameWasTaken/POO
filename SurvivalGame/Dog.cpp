@@ -16,7 +16,7 @@ Dog::~Dog() {
 }
 
 void Dog::beginPlay() {
-	Agent::beginPlay();
+	Super::beginPlay();
 
 	this->maxHP = 125;
 	this->maxArmor = 125;
@@ -26,5 +26,5 @@ void Dog::beginPlay() {
 }
 
 void Dog::update() {
-	Agent::update();
+	Super::update();
 }

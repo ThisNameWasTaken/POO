@@ -12,6 +12,9 @@ public:
 	virtual void beginPlay() override;
 	virtual void update() override;
 
+protected:
+	typedef Agent Super;
+
 private:
 	class Controller* controller;
 	static Texture texture;

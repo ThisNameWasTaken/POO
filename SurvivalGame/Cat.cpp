@@ -16,7 +16,7 @@ Cat::~Cat() {
 }
 
 void Cat::beginPlay() {
-	Agent::beginPlay();
+	Super::beginPlay();
 
 	this->maxHP = 75;
 	this->maxArmor = 155;
@@ -26,5 +26,5 @@ void Cat::beginPlay() {
 }
 
 void Cat::update() {
-	Agent::update();
+	Super::update();
 }
