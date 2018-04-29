@@ -3,6 +3,7 @@
 #include "Console.h"
 #include "Random.h"
 #include "Scene.h"
+#include "PickUp.h"
 #include <string>
 
 Agent::Agent(const Vector2D& position, const string& tagName) : Character(position) {
@@ -32,8 +33,10 @@ void Agent::beginPlay() {
 void Agent::update() {
 	Super::update();
 
-	Console::setCursorPosition(0, 56);
-	cout << "Actors count: " << Actor::getWorldActors().size() << "\n";
+	const Scene* activeScene = Scene::getActiveScene();
+	if (activeScene) {
+		Console::setCursorPosition(0, 56);
+	}
 
 	set<Actor*> overlappingActors = this->getOverlappingActors();
 	for (Actor* actor : overlappingActors) {
@@ -54,6 +57,11 @@ void Agent::update() {
 				this->Destroy();
 				agent->Destroy();
 			}
+		}
+
+		PickUp* pickUp = dynamic_cast<PickUp*>(actor);
+		if (pickUp) {
+			pickUp->buff(this);
 		}
 	}
 }
