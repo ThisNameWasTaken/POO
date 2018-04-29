@@ -3,13 +3,13 @@
 
 #pragma once
 class Character : public Actor {
-public:
-	Character(const Vector2D& Position = Vector2D(0, 0));
-	Character(const Character& character);
-	Character(const Sprite& sprite, class Controller* controller = nullptr, const Vector2D& Position = Vector2D(0, 0));
+  public:
+	Character(const Vector2D &Position = Vector2D(0, 0));
+	Character(const Character &character);
+	Character(const Sprite &sprite, class Controller *controller = nullptr, const Vector2D &Position = Vector2D(0, 0));
 	~Character();
 
-	const Character& operator=(const Character& character);
+	const Character &operator=(const Character &character);
 
 	void beginPlay() override;
 	void update() override;
@@ -18,15 +18,14 @@ public:
 	 * Moves a character from its current position by a given value
 	 * @param value - the value to move the actor by
 	 */
-	inline virtual void move(const Vector2D& value) { this->setPosition(this->getPosition() + value); }
+	inline virtual void move(const Vector2D &value) { this->setPosition(this->getPosition() + value); }
 
-	void setController(class Controller* controller);
-	inline class Controller* getController() const { return this->controller; }
+	void setController(class Controller *controller);
+	inline class Controller *getController() const { return this->controller; }
 
-protected:
+  protected:
 	typedef Character Super;
 
-private:
-	class Controller* controller;
+  private:
+	class Controller *controller;
 };
-
