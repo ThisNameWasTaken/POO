@@ -18,6 +18,7 @@ Actor::Actor(const Sprite& sprite, const Vector2D& position) : Actor(position) {
 }
 
 Actor::~Actor() {
+	this->shouldUpdate = false;
 	worldActors.erase(this);
 }
 
@@ -63,10 +64,14 @@ set<Actor*> Actor::getOverlappingActors() const {
 	set<Actor*> overlappingActors;
 
 	for (Actor* actor : worldActors) {
-		if (actor->getPosition() == this->position) {
+		if (actor->getPosition() == this->position && actor != this) {
 			overlappingActors.insert(actor);
 		}
 	}
 
 	return overlappingActors;
+}
+
+void Actor::Destroy() {
+	this->~Actor();
 }

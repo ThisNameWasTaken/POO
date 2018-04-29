@@ -51,6 +51,11 @@ class Actor {
 	 */
 	bool shouldUpdate;
 
+	/**
+	 * Destroys the current instance
+	 */
+	void Destroy();
+
   protected:
 	typedef Actor Super;
 
