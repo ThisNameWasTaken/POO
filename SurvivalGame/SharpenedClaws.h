@@ -1,6 +1,7 @@
 #pragma once
 
 #include "PickUp.h"
+#include "Texture.h"
 
 class SharpenedClaws : public PickUp {
 public:
@@ -12,5 +13,8 @@ public:
 	virtual void update() override;
 
 	virtual void buff(class Agent* agent) override;
+
+private:
+	static Texture texture;
 };
 

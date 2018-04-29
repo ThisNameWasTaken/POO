@@ -2,15 +2,13 @@
 #include "Agent.h"
 #include <limits.h>
 
-HealthPack::HealthPack(const Vector2D& position) : PickUp(position) {
+Texture HealthPack::texture("Textures/HealthPack.txt");
+
+HealthPack::HealthPack(const Vector2D& position) : PickUp(Sprite(&texture), position) {
 
 }
 
 HealthPack::HealthPack(const HealthPack& pickup) : PickUp(pickup) {
-
-}
-
-HealthPack::HealthPack(const Sprite& sprite, const Vector2D& position) : PickUp(sprite, position) {
 
 }
 
@@ -24,4 +22,5 @@ void HealthPack::update() {
 
 void HealthPack::buff(Agent* agent) {
 	agent->setHP(INT_MAX);
+	this->Destroy();
 }
