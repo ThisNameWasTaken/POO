@@ -1,0 +1,10 @@
+﻿
+Renamed 'AttachTo' to 'attachTo':
+---------------------------------
+d:\Visual Studio Projects\_POO\SurvivalGame\SurvivalGame\Character.h(21, 134)
+d:\Visual Studio Projects\_POO\SurvivalGame\SurvivalGame\Controller.h(20, 14)
+
+Renamed 'Move' to 'move':
+-------------------------
+d:\Visual Studio Projects\_POO\SurvivalGame\SurvivalGame\Character.h(19, 22)
+d:\Visual Studio Projects\_POO\SurvivalGame\SurvivalGame\InputController.cpp(18, 19)
