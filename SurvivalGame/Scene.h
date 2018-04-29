@@ -13,8 +13,18 @@ public:
 	void render();
 
 	inline static const Scene* getActiveScene() { return activeScene; };
+
 	inline int getWidth() const { return this->width; }
 	inline int getHeight() const { return this->height; }
+
+	/**
+	 * @returns - the width the scene takes inside the console
+	 */
+	inline int getConsoleWidth() const { return this->width * this->tile.getWidth(); }
+	/**
+	 * @returns - the height the scene takes inside the console
+	 */
+	inline int getConsoleHeight() const { return this->width * this->tile.getHeight(); }
 
 private:
 	void renderFirstPaint() const;

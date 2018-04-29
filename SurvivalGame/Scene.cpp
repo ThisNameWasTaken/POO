@@ -62,6 +62,8 @@ void Scene::render() {
 		cursorPosition.X = actor->getPosition().x * this->tile.getWidth();
 		cursorPosition.Y = actor->getPosition().y * this->tile.getHeight();
 		Console::setCursorPosition(cursorPosition);
+
+		// 
 		cout << actor->getSprite();
 	}
 
@@ -87,6 +89,7 @@ void Scene::renderFirstPaint() const {
 		Console::setCursorPosition(cursorPosition);
 	}
 
+	// Call the begin play method
 	for (Actor* actor : this->actors) {
 		if (!actor) {
 			continue;
