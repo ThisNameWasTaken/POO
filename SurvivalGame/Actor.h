@@ -8,9 +8,9 @@ using namespace std;
 
 class Actor {
   public:
-	Actor(Vector2D position = Vector2D(0, 0));
+	Actor(const Vector2D& position = Vector2D(0, 0));
 	Actor(const Actor& actor);
-	Actor(Sprite sprite, Vector2D position = Vector2D(0, 0));
+	Actor(const Sprite& sprite, const Vector2D& position = Vector2D(0, 0));
 	~Actor();
 
 	const Actor& operator=(const Actor& actor);
@@ -54,9 +54,10 @@ class Actor {
   protected:
 	typedef Actor Super;
 
-  private:
 	Vector2D position;
 	Sprite sprite;
+
+private:
 	// All the actors that have been spawned so far
 	static set<Actor*> worldActors;
 };

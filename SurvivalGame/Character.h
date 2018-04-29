@@ -4,9 +4,9 @@
 #pragma once
 class Character : public Actor {
 public:
-	Character();
+	Character(const Vector2D& Position = Vector2D(0, 0));
 	Character(const Character& character);
-	Character(Sprite sprite, class Controller* controller = nullptr);
+	Character(const Sprite& sprite, class Controller* controller = nullptr);
 	~Character();
 
 	const Character& operator=(const Character& character);

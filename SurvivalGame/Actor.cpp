@@ -3,7 +3,7 @@
 
 set<Actor*> Actor::worldActors;
 
-Actor::Actor(Vector2D position) {
+Actor::Actor(const Vector2D& position) {
 	this->setPosition(position);
 	worldActors.insert(this);
 	this->shouldUpdate = true;
@@ -13,7 +13,7 @@ Actor::Actor(const Actor& actor) : Actor(sprite) {
 	this->setPosition(actor.getPosition());
 }
 
-Actor::Actor(Sprite sprite, Vector2D position) : Actor(position) {
+Actor::Actor(const Sprite& sprite, const Vector2D& position) : Actor(position) {
 	this->setSprite(sprite);
 }
 

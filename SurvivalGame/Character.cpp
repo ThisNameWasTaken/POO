@@ -1,15 +1,15 @@
 #include "Character.h"
 #include "Controller.h"
 
-Character::Character() {
+Character::Character(const Vector2D& Position) : Actor(Position) {
 
 }
 
-Character::Character(const Character& character) {
+Character::Character(const Character& character) : Actor(character) {
 	this->controller = character.getController();
 }
 
-Character::Character(Sprite sprite, Controller* controller) : Actor(sprite) {
+Character::Character(const Sprite& sprite, Controller* controller) : Actor(sprite) {
 	this->setController(controller);
 }
 
