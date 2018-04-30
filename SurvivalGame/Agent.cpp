@@ -26,7 +26,10 @@ void Agent::beginPlay() {
 	Super::beginPlay();
 	const Scene* scene = Scene::getActiveScene();
 	if (scene) {
-		this->setPosition(Vector2D(random(scene->getHeight()), random(scene->getWidth())));
+		this->setPosition(Vector2D(random(scene->getWidth()), random(scene->getHeight())));
+		if (this->getOverlappingActors().size()) {
+			this->setPosition(Vector2D(random(scene->getWidth()), random(scene->getHeight())));
+		}
 	}
 }
 
