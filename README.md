@@ -18,7 +18,7 @@
 
 Here I am playing as the ghost at the bottom of the screen.
 
-<video src="./survival-game-desktop-recording.mp4" width="100%" height="auto" controls preload></video>
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/LumsAvNAWUA/0.jpg)](https://www.youtube.com/watch?v=LumsAvNAWUA)
 
 ## Project description
 
